@@ -4,7 +4,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">
 
-    var keyword = "sigara";
+    var keyword = "galatasaray";
 
     $(document).ready(function(){
 
@@ -20,7 +20,7 @@
 
             var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
 
-            $("#myDiv").css('background-image', "url('" + image_src + "')");
+            $("#image-div").css('background-image', "url('" + image_src + "')");
 
         });
 
@@ -41,7 +41,7 @@
 
             var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
 
-            $("#myDiv").css('background-image', "url('" + image_src + "')");
+            $("#image-div").css('background-image', "url('" + image_src + "')");
 
         });
     }
@@ -51,6 +51,6 @@
   <input id="inputText" type="text" style="height: 30px;">
   <button onclick="changeByTag()" >asd</button>
 
-  <div id="myDiv" style="height: 100vh; width: 100vh; background-size:cover"></div>
+  <div id="image-div" style="height: 100vh; width: 100vh; background-size:cover"></div>
 </body>
 </html>
