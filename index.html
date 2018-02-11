@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var keyword = "sigara";
+
+    $(document).ready(function(){
+
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+        {
+            tags: keyword,
+            tagmode: "any",
+            format: "json"
+        },
+        function(data) {
+            var rnd = Math.floor(Math.random() * data.items.length);
+            console.log(data.items[rnd]);
+
+            var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
+
+            $("#myDiv").css('background-image', "url('" + image_src + "')");
+
+        });
+
+    });
+
+    function changeByTag() {
+      var keyword = document.getElementById("inputText").value;
+      console.log(keyword);
+      $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+        {
+            tags: keyword,
+            tagmode: "any",
+            format: "json"
+        },
+        function(data) {
+            var rnd = Math.floor(Math.random() * data.items.length);
+            console.log(data.items[rnd]);
+
+            var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
+
+            $("#myDiv").css('background-image', "url('" + image_src + "')");
+
+        });
+    }
+    </script>
+</head>
+<body>
+  <input id="inputText" type="text" style="height: 30px;">
+  <button onclick="changeByTag()" >asd</button>
+
+  <div id="myDiv" style="height: 100vh; width: 100vh; background-size:cover"></div>
+</body>
+</html>
