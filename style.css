@@ -1,0 +1,16 @@
+#img-s,#image-div,#img-t,#img-f{
+	background-repeat: no-repeat;
+	width: 100%;
+}
+.inputText {
+	padding-top: 30px;
+    text-align: center;
+}
+.gallery_product {
+	height:100%;
+	width:100%;
+}
+
+h1 {
+	text-align: center;
+}

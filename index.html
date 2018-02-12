@@ -1,56 +1,30 @@
 <html>
+
 <head>
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript">
-
-    var keyword = "galatasaray";
-
-    $(document).ready(function(){
-
-        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-        {
-            tags: keyword,
-            tagmode: "any",
-            format: "json"
-        },
-        function(data) {
-            var rnd = Math.floor(Math.random() * data.items.length);
-            console.log(data.items[rnd]);
-
-            var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
-
-            $("#image-div").css('background-image', "url('" + image_src + "')");
-
-        });
-
-    });
-
-    function changeByTag() {
-      var keyword = document.getElementById("inputText").value;
-      console.log(keyword);
-      $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-        {
-            tags: keyword,
-            tagmode: "any",
-            format: "json"
-        },
-        function(data) {
-            var rnd = Math.floor(Math.random() * data.items.length);
-            console.log(data.items[rnd]);
-
-            var image_src = data.items[rnd]['media']['m'].replace("_m", "_b");
-
-            $("#image-div").css('background-image', "url('" + image_src + "')");
-
-        });
-    }
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+     <title>Random İmage</title>
 </head>
 <body>
-  <input id="inputText" type="text" style="height: 30px;">
-  <button onclick="changeByTag()" >asd</button>
-
-  <div id="image-div" style="height: 100vh; width: 100vh; background-size:cover"></div>
+  <input id="inputText" type="text">
+  <button onclick="changeByTag()">Search</button>
+  <div class="container"></div>
+  <div class="row">
+<h1>Random İmage</h1>
+    <div id="image-div" class="gallery_product col-lg-4 col-md-4 col-sm-1 col-xs-1">
+            </div>
+              <div id="img-s" class="gallery_product col-lg-4 col-md-4 col-sm-1 col-xs-1">
+            </div>
+             <div id="img-t" class="gallery_product col-lg-4 col-md-4 col-sm-1 col-xs-1">
+            </div>
+             <div id="img-f" class="gallery_product col-lg-4 col-md-4 col-sm-1 col-xs-1">
+            </div>
+        </div>
+  </div>
 </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./api.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>
